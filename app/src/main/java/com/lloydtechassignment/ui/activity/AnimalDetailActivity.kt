@@ -3,15 +3,16 @@ package com.lloydtechassignment.ui.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.lloydtechassignment.data.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
 import com.lloydtechassignment.ui.base.BaseActivity
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
-import com.lloydtechassignment.viewmodel.AnimalViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * Animal Detail Activity to show Animals detail
+ * */
 class AnimalDetailActivity() : BaseActivity<AnimalDetailViewmodel,ActivityAnimalDetailsBinding>() {
 
     override val mViewModel by viewModel<AnimalDetailViewmodel>()
@@ -30,6 +31,10 @@ class AnimalDetailActivity() : BaseActivity<AnimalDetailViewmodel,ActivityAnimal
     companion object {
         private const val EXTRA_DATA = "extra_data"
 
+        /**
+         * Method is used to send Extra Data to the Activity and returning its intent
+         * [context] is used to send Context of calling activity
+         * [animalsRespItem] is the data parameter*/
         fun getStartIntent(
             context: Context,
             animalsRespItem: AnimalsRespItem
@@ -41,6 +46,9 @@ class AnimalDetailActivity() : BaseActivity<AnimalDetailViewmodel,ActivityAnimal
         setAnimalData()
     }
 
+    /**
+     * Set Animal Data is used for setting Animal Data on Animal Detail Page
+     * */
     private fun setAnimalData(){
         mViewModel.animalData?.let {
             mViewBinding.content.apply {

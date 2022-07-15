@@ -5,6 +5,9 @@ import com.lloydtechassignment.util.END_POINT
 import retrofit2.Response
 import retrofit2.http.GET
 
+/**
+ * API Service class for API interactions
+ * */
 interface ApiService {
 
     @GET(END_POINT)

@@ -13,6 +13,9 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+/**
+ * Retrofit Module for provinding retrofit dependency
+ * */
 val retrofitModule = module {
 
     fun provideGson(): Gson {
@@ -38,6 +41,9 @@ val retrofitModule = module {
     single { provideRetrofit(get()) }
 }
 
+/**
+ * API Module for providing api dependency
+ * */
 val apiModule = module {
     fun provideUseApi(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)

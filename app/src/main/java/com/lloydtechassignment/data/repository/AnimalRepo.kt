@@ -6,6 +6,10 @@ import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * Animal Repository for fetching Animal List
+ * parameter [apiService] injected using Koin Dependency Injection
+ * */
 class AnimalRepo(private val apiService: ApiService) {
 
     suspend fun getAnimalFacts(): DataState<List<AnimalsRespItem>> {
