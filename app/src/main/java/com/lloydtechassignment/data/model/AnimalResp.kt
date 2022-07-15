@@ -23,5 +23,3 @@ data class AnimalsRespItem(
 ) : Parcelable
 
 
-class AnimalData : ArrayList<AnimalsRespItem>()
-
