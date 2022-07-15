@@ -1,6 +1,5 @@
 package com.lloydtechassignment.data.repository
 
-
 import com.lloydtechassignment.data.network.ApiService
 import com.lloydtechassignment.data.model.AnimalsRespItem
 import com.lloydtechassignment.util.DataState

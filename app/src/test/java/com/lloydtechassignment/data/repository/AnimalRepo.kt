@@ -1,23 +1,50 @@
 package com.lloydtechassignment.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import com.lloydtechassignment.base.BaseUTTest
+import com.lloydtechassignment.data.network.ApiService
+import com.lloydtechassignment.di.configureTestAppComponent
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestCoroutineScope
+import okhttp3.mockwebserver.MockWebServer
+import org.junit.Assert
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.Mockito
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
+import org.koin.core.component.inject
+import org.koin.core.context.startKoin
+import java.net.HttpURLConnection
 
-@ExperimentalCoroutinesApi
-class AnimalRepoTest {
+@RunWith(JUnit4::class)
+class LoginRepositoryTest : BaseUTTest(){
+
+    //Target
+    private lateinit var mRepo: AnimalRepo
+    //Inject api service created with koin
+    val mAPIService : ApiService by inject()
+
+    //Inject Mockwebserver created with koin
+    val mockWebServer : MockWebServer by inject()
 
     @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
+    var instantExecutorRule = InstantTaskExecutorRule()
 
-    @Mock
-    lateinit var repository: AnimalRepo
+    @Before
+    fun start(){
+        super.setUp()
 
+        startKoin{ modules(configureTestAppComponent(getMockWebServerUrl()))}
+    }
 
+    @Test
+    fun test_animals_repo_retrieves_expected_data() =  runBlocking<Unit>{
 
+        mockNetworkResponseWithFileContent("animals.json", HttpURLConnection.HTTP_OK)
+        mRepo = AnimalRepo(mAPIService)
+
+        val dataReceived = mRepo.getAnimalFacts()
+
+        Assert.assertNotNull(dataReceived)
+    }
 }
