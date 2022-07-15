@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET(END_POINT)
-    suspend fun getCatContent(): Response<List<AnimalsRespItem>>
+    suspend fun getAnimals(): Response<List<AnimalsRespItem>>
 }

@@ -7,12 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.lloydtechassignment.data.model.AnimalsRespItem
 import com.lloydtechassignment.data.repository.AnimalRepo
 import com.lloydtechassignment.util.DataState
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class AnimalViewModel @Inject constructor(private val animalRepo: AnimalRepo) : ViewModel() {
+class AnimalViewModel(private val animalRepo: AnimalRepo) : ViewModel() {
 
     private val _dataState: MutableLiveData<DataState<List<AnimalsRespItem>>> = MutableLiveData()
 
@@ -21,7 +18,7 @@ class AnimalViewModel @Inject constructor(private val animalRepo: AnimalRepo) : 
 
     fun getAllAnimalFacts() {
         viewModelScope.launch {
-            _dataState.postValue(animalRepo.getCatFacts())
+            _dataState.postValue(animalRepo.getAnimalFacts())
         }
     }
 }

@@ -9,12 +9,12 @@ import com.lloydtechassignment.data.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
 import com.lloydtechassignment.ui.base.BaseActivity
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
-import dagger.hilt.android.AndroidEntryPoint
+import com.lloydtechassignment.viewmodel.AnimalViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
-class AnimalDetailActivity  : BaseActivity<AnimalDetailViewmodel,ActivityAnimalDetailsBinding>() {
+class AnimalDetailActivity() : BaseActivity<AnimalDetailViewmodel,ActivityAnimalDetailsBinding>() {
 
-    override val mViewModel: AnimalDetailViewmodel by viewModels()
+    override val mViewModel by viewModel<AnimalDetailViewmodel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

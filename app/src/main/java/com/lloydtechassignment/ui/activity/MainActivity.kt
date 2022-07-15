@@ -13,12 +13,11 @@ import com.lloydtechassignment.ui.adapters.AnimalListAdapter
 import com.lloydtechassignment.ui.base.BaseActivity
 import com.lloydtechassignment.util.*
 import com.lloydtechassignment.viewmodel.AnimalViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class MainActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
 
-    override val mViewModel: AnimalViewModel by viewModels()
+    override val mViewModel by viewModel<AnimalViewModel>()
     private val mAdapter = AnimalListAdapter(this::onItemClicked)
 
 

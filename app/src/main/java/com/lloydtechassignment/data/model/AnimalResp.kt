@@ -21,3 +21,7 @@ data class AnimalsRespItem(
     var weight_max: String?,
     var weight_min: String?
 ) : Parcelable
+
+
+class AnimalData : ArrayList<AnimalsRespItem>()
+
