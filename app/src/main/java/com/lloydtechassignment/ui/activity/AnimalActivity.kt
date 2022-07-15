@@ -1,7 +1,5 @@
 package com.lloydtechassignment.ui.activity
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -24,11 +22,10 @@ class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-                setTheme(R.style.AppTheme) // Set AppTheme before setting content view.
+        setTheme(R.style.AppTheme) // Set AppTheme before setting content view.
 
         super.onCreate(savedInstanceState)
         setContentView(mViewBinding.root)
-
 
         initView()
         subscribeObservers()
@@ -36,7 +33,7 @@ class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
 
     override fun onStart() {
         super.onStart()
-        handleNetworkChanges()
+        getAnimalData()
     }
 
     /**Method is used to initialize views* */
@@ -49,36 +46,24 @@ class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
 
     /**
      * Observe network changes i.e. Internet Connectivity
+     * get Animal Data
      */
-    private fun handleNetworkChanges() {
-        NetworkUtils.getNetworkLiveData(applicationContext).observe(this) { isConnected ->
-            if (!isConnected) {
-                mViewBinding.textViewNetworkStatus.text = getString(R.string.text_no_connectivity)
-                mViewBinding.networkStatusLayout.apply {
-                    show()
-                    setBackgroundColor(ContextCompat.getColor(
-                        this@AnimalActivity,R.color.colorStatusNotConnected))
-                }
-            } else {
-                mViewBinding.networkStatusLayout.apply {
-                    setBackgroundColor(ContextCompat.getColor(
-                        this@AnimalActivity,R.color.colorStatusNotConnected))
-
-                    animate()
-                        .alpha(1f)
-                        .setStartDelay(ANIMATION_DURATION)
-                        .setDuration(ANIMATION_DURATION)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator) {
-                                hide()
-                            }
-                        })
-                }
-                if (mAdapter.itemCount == 0) mViewModel.getAllAnimalFacts()
+    private fun getAnimalData() {
+        if (isNetworkAvailable()) {
+            mViewBinding.networkStatusLayout.hide()
+            if (mAdapter.itemCount == 0) mViewModel.getAllAnimalFacts()
+        } else {
+            mViewBinding.textViewNetworkStatus.text = getString(R.string.text_no_connectivity)
+            mViewBinding.networkStatusLayout.apply {
+                show()
+                setBackgroundColor(
+                    ContextCompat.getColor(
+                        this@AnimalActivity, R.color.colorStatusNotConnected
+                    )
+                )
             }
         }
     }
-
 
 
     /**

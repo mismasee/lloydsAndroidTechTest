@@ -14,14 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LloydTechAssignment">
 
+        <!--Animal Detail Activity-->
         <activity
             android:name=".ui.activity.AnimalDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <!--Animal Activity-->
         <activity
             android:name=".ui.activity.AnimalActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
