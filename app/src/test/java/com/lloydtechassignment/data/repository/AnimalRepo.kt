@@ -20,7 +20,7 @@ import java.net.HttpURLConnection
 class LoginRepositoryTest : BaseUTTest(){
 
     //Target
-    private lateinit var mRepo: AnimalRepo
+    private lateinit var mRepo: AnimalRepoImpl
     //Inject api service created with koin
     val mAPIService : ApiService by inject()
 
@@ -41,7 +41,7 @@ class LoginRepositoryTest : BaseUTTest(){
     fun test_animals_repo_retrieves_expected_data() =  runBlocking<Unit>{
 
         mockNetworkResponseWithFileContent("animals.json", HttpURLConnection.HTTP_OK)
-        mRepo = AnimalRepo(mAPIService)
+        mRepo = AnimalRepoImpl(mAPIService)
 
         val dataReceived = mRepo.getAnimalFacts()
 

@@ -1,6 +1,8 @@
 package com.lloydtechassignment.di
 
-import com.lloydtechassignment.data.repository.AnimalRepo
+import com.lloydtechassignment.data.repository.AnimalRepoImpl
+import com.lloydtechassignment.domain.interactor.AnimalUseCase
+import com.lloydtechassignment.domain.repository.AnimalRepo
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
 import com.lloydtechassignment.viewmodel.AnimalViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -20,7 +22,14 @@ val viewModelModule = module {
  * Repository Module for repository dependency
  * We declared component as single, as singleton instances.*/
 val repositoryModule = module {
-    single { AnimalRepo(get()) }
+    single { AnimalRepoImpl(get()) as AnimalRepo }
+}
+
+/**
+ * Repository Module for repository dependency
+ * We declared component as single, as singleton instances.*/
+val useCaseModule = module {
+    single { AnimalUseCase(get()) }
 }
 
 

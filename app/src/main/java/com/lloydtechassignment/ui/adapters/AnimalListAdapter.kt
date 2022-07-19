@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.lloydtechassignment.data.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ItemAnimalBinding
 import com.lloydtechassignment.ui.adapters.viewholder.AnimalViewHolder
 

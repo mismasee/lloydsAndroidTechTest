@@ -1,7 +1,7 @@
 package com.lloydtechassignment.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.lloydtechassignment.data.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalsRespItem
 
 class AnimalDetailViewmodel : ViewModel() {
 

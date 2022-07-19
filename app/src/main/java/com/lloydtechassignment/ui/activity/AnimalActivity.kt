@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.lloydtechassignment.R
-import com.lloydtechassignment.data.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ActivityMainBinding
 import com.lloydtechassignment.ui.adapters.AnimalListAdapter
 import com.lloydtechassignment.ui.base.BaseActivity

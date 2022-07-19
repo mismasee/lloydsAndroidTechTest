@@ -4,15 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lloydtechassignment.data.model.AnimalsRespItem
-import com.lloydtechassignment.data.repository.AnimalRepo
+import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.data.repository.AnimalRepoImpl
+import com.lloydtechassignment.domain.interactor.AnimalUseCase
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.launch
 
 /**
  * ViewModel for [AnimalActivity]
  */
-class AnimalViewModel(private val animalRepo: AnimalRepo) : ViewModel() {
+class AnimalViewModel(private val animalUseCase: AnimalUseCase) : ViewModel() {
 
     private val _dataState: MutableLiveData<DataState<List<AnimalsRespItem>>> = MutableLiveData()
 
@@ -22,7 +23,7 @@ class AnimalViewModel(private val animalRepo: AnimalRepo) : ViewModel() {
     fun getAllAnimalFacts() {
         _dataState.postValue(DataState.Loading)
         viewModelScope.launch {
-            _dataState.postValue(animalRepo.getAnimalFacts())
+            _dataState.postValue(animalUseCase.invoke())
         }
     }
 }

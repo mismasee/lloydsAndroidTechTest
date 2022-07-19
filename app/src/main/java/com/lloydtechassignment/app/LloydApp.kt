@@ -1,10 +1,7 @@
 package com.lloydtechassignment.app
 
 import android.app.Application
-import com.lloydtechassignment.di.apiModule
-import com.lloydtechassignment.di.repositoryModule
-import com.lloydtechassignment.di.retrofitModule
-import com.lloydtechassignment.di.viewModelModule
+import com.lloydtechassignment.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -25,6 +22,7 @@ class LloydApp : Application(){
             modules(listOf(repositoryModule,
                 viewModelModule,
                 retrofitModule,
+                useCaseModule,
                 apiModule))
         }
     }

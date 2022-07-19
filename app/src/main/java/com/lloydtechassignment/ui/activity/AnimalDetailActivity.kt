@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
-import com.lloydtechassignment.data.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
 import com.lloydtechassignment.ui.base.BaseActivity
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
