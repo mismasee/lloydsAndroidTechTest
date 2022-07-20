@@ -1,4 +1,4 @@
-package com.lloydtechassignment.ui.activity
+package com.lloydtechassignment.presentation.activity
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -6,8 +6,8 @@ import androidx.lifecycle.Observer
 import com.lloydtechassignment.R
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ActivityMainBinding
-import com.lloydtechassignment.ui.adapters.AnimalListAdapter
-import com.lloydtechassignment.ui.base.BaseActivity
+import com.lloydtechassignment.presentation.adapters.AnimalListAdapter
+import com.lloydtechassignment.presentation.base.BaseActivity
 import com.lloydtechassignment.util.*
 import com.lloydtechassignment.viewmodel.AnimalViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,15 +17,15 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * */
 class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
 
-    override val mViewModel by viewModel<AnimalViewModel>()
-    private val mAdapter = AnimalListAdapter(this::onItemClicked)
+    override val viewmodel by viewModel<AnimalViewModel>()
+    private val adapter = AnimalListAdapter(this::onItemClicked)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme) // Set AppTheme before setting content view.
 
         super.onCreate(savedInstanceState)
-        setContentView(mViewBinding.root)
+        setContentView(viewBinding.root)
 
         initView()
         subscribeObservers()
@@ -38,8 +38,8 @@ class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
 
     /**Method is used to initialize views* */
     private fun initView() {
-        mViewBinding.run {
-            postsRecyclerView.adapter = mAdapter
+        viewBinding.run {
+            postsRecyclerView.adapter = adapter
         }
     }
 
@@ -50,11 +50,11 @@ class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
      */
     private fun getAnimalData() {
         if (isNetworkAvailable()) {
-            mViewBinding.networkStatusLayout.hide()
-            if (mAdapter.itemCount == 0) mViewModel.getAllAnimalFacts()
+            viewBinding.networkStatusLayout.hide()
+            if (adapter.itemCount == 0) viewmodel.getAllAnimalFacts()
         } else {
-            mViewBinding.textViewNetworkStatus.text = getString(R.string.text_no_connectivity)
-            mViewBinding.networkStatusLayout.apply {
+            viewBinding.textViewNetworkStatus.text = getString(R.string.text_no_connectivity)
+            viewBinding.networkStatusLayout.apply {
                 show()
                 setBackgroundColor(
                     ContextCompat.getColor(
@@ -70,10 +70,10 @@ class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
      * Method is used to observe viewmodel livedata
      * */
     private fun subscribeObservers() {
-        mViewModel.dataState.observe(this, Observer { dataState ->
+        viewmodel.dataState.observe(this, Observer { dataState ->
             when (dataState) {
                 is DataState.Success -> if (dataState.data?.isNotEmpty() == true) {
-                    mAdapter.submitList(dataState.data.toMutableList())
+                    adapter.submitList(dataState.data.toMutableList())
                 }
                 is DataState.Loading -> showToast(getString(R.string.loading_str))
                 is DataState.Failure -> showToast(getString(R.string.something_went_wrong))
@@ -81,7 +81,7 @@ class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
         })
     }
 
-    override fun getViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+    override fun getBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
     private fun onItemClicked(animalsRespItem: AnimalsRespItem) {
         val intent = AnimalDetailActivity.getStartIntent(this, animalsRespItem)

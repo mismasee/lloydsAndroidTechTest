@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:animateLayoutChanges="true"
-    tools:context=".ui.activity.AnimalActivity"
+    tools:context=".presentation.activity.AnimalActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
         <LinearLayout

@@ -38,7 +38,7 @@ class LoginRepositoryTest : BaseUTTest(){
     }
 
     @Test
-    fun test_animals_repo_retrieves_expected_data() =  runBlocking<Unit>{
+    fun `when calling animal repo check if result is expected data`() =  runBlocking<Unit>{
 
         mockNetworkResponseWithFileContent("animals.json", HttpURLConnection.HTTP_OK)
         mRepo = AnimalRepoImpl(mAPIService)

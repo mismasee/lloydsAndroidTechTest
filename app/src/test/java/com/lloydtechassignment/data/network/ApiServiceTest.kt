@@ -47,8 +47,9 @@ class ApiServiceTest {
         mockWebServer.shutdown()
     }
 
+
     @Test
-    fun getAnimalsTest() = runBlocking {
+    fun `when fetching animal list success then return an list size`() = runBlocking {
         enqueueResponse("animals.json")
         val animals = service.getAnimals().body()
         assertThat(animals!!.size).isEqualTo(10)

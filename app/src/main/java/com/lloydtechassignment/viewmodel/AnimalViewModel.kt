@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lloydtechassignment.domain.model.AnimalsRespItem
-import com.lloydtechassignment.data.repository.AnimalRepoImpl
 import com.lloydtechassignment.domain.interactor.AnimalUseCase
+import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.launch
 

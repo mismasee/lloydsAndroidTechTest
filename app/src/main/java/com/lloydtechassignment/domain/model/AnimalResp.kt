@@ -3,7 +3,6 @@ package com.lloydtechassignment.domain.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-
 @Parcelize
 data class AnimalsRespItem(
     var active_time: String?,

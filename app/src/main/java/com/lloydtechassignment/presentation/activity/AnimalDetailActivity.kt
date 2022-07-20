@@ -1,32 +1,19 @@
-package com.lloydtechassignment.ui.activity
+package com.lloydtechassignment.presentation.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
-import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
-import com.lloydtechassignment.ui.base.BaseActivity
+import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.presentation.base.BaseActivity
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Animal Detail Activity to show Animals detail
  * */
-class AnimalDetailActivity() : BaseActivity<AnimalDetailViewmodel,ActivityAnimalDetailsBinding>() {
-
-    override val mViewModel by viewModel<AnimalDetailViewmodel>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(mViewBinding.root)
-
-        mViewModel.animalData = intent.getParcelableExtra(EXTRA_DATA)
-    }
-
-
-    override fun getViewBinding(): ActivityAnimalDetailsBinding =
-        ActivityAnimalDetailsBinding.inflate(layoutInflater)
+class AnimalDetailActivity : BaseActivity<AnimalDetailViewmodel, ActivityAnimalDetailsBinding>() {
 
     companion object {
         private const val EXTRA_DATA = "extra_data"
@@ -38,8 +25,23 @@ class AnimalDetailActivity() : BaseActivity<AnimalDetailViewmodel,ActivityAnimal
         fun getStartIntent(
             context: Context,
             animalsRespItem: AnimalsRespItem
-        ) = Intent(context, AnimalDetailActivity::class.java).apply { putExtra(EXTRA_DATA, animalsRespItem) }
+        ) = Intent(context, AnimalDetailActivity::class.java).apply {
+            putExtra(EXTRA_DATA, animalsRespItem)
+        }
     }
+
+    override val viewmodel by viewModel<AnimalDetailViewmodel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(viewBinding.root)
+
+        viewmodel.animalData = intent.getParcelableExtra(EXTRA_DATA)
+    }
+
+
+    override fun getBinding(): ActivityAnimalDetailsBinding =
+        ActivityAnimalDetailsBinding.inflate(layoutInflater)
 
     override fun onStart() {
         super.onStart()
@@ -49,16 +51,16 @@ class AnimalDetailActivity() : BaseActivity<AnimalDetailViewmodel,ActivityAnimal
     /**
      * Set Animal Data is used for setting Animal Data on Animal Detail Page
      * */
-    private fun setAnimalData(){
-        mViewModel.animalData?.let {
-            mViewBinding.content.apply {
+    private fun setAnimalData() {
+        viewmodel.animalData?.let {
+            viewBinding.content.apply {
                 animalTitle.text = it.name
                 animalGeo.text = it.geo_range
             }
-            mViewBinding.toolbar.title = it.name
+            viewBinding.toolbar.title = it.name
             Glide.with(this)
                 .load(it.image_link) // image url
-                .into(mViewBinding.imageView)
+                .into(viewBinding.imageView)
         }
     }
 

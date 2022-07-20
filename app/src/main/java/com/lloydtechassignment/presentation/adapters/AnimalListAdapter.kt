@@ -1,4 +1,4 @@
-package com.lloydtechassignment.ui.adapters
+package com.lloydtechassignment.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.databinding.ItemAnimalBinding
-import com.lloydtechassignment.ui.adapters.viewholder.AnimalViewHolder
+import com.lloydtechassignment.presentation.adapters.viewholder.AnimalViewHolder
 
 /**
  * Adapter class [RecyclerView.Adapter] for [RecyclerView] which binds [Animal] along with [AnimalViewHolder]

@@ -4,7 +4,6 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.lloydtechassignment.CoroutinesTestRule
 import com.lloydtechassignment.domain.model.AnimalsRespItem
-import com.lloydtechassignment.data.repository.AnimalRepoImpl
 import com.lloydtechassignment.domain.interactor.AnimalUseCase
 import com.lloydtechassignment.util.DataState
 import com.nhaarman.mockitokotlin2.verify

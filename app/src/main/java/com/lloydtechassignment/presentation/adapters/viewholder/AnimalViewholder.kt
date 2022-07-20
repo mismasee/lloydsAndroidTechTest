@@ -1,4 +1,4 @@
-package com.lloydtechassignment.ui.adapters.viewholder
+package com.lloydtechassignment.presentation.adapters.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
