@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_animal_detail.xml" value="0.13134057971014493" />
-        <entry key="app/src/main/res/layout/activity_animal_details.xml" value="0.1703125" />
+        <entry key="app/src/main/res/layout/activity_animal_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_post_details.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/content_animal_details.xml" value="0.16134751773049646" />
+        <entry key="app/src/main/res/layout/content_animal_details.xml" value="0.165" />
         <entry key="app/src/main/res/layout/content_post_details.xml" value="0.1703125" />
+        <entry key="app/src/main/res/layout/fragment_animal_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_favourite.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
