@@ -2,10 +2,9 @@ package com.lloydtechassignment.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.lloydtechassignment.base.BaseUTTest
-import com.lloydtechassignment.data.network.ApiService
+import com.lloydtechassignment.data.source.remote.ApiService
 import com.lloydtechassignment.di.configureTestAppComponent
 import kotlinx.coroutines.runBlocking
-import okhttp3.mockwebserver.MockWebServer
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
@@ -20,12 +19,10 @@ import java.net.HttpURLConnection
 class LoginRepositoryTest : BaseUTTest(){
 
     //Target
-    private lateinit var mRepo: AnimalRepo
+    private lateinit var repo: AnimalRepoImpl
     //Inject api service created with koin
-    val mAPIService : ApiService by inject()
+    private val apiService : ApiService by inject()
 
-    //Inject Mockwebserver created with koin
-    val mockWebServer : MockWebServer by inject()
 
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
@@ -38,12 +35,12 @@ class LoginRepositoryTest : BaseUTTest(){
     }
 
     @Test
-    fun test_animals_repo_retrieves_expected_data() =  runBlocking<Unit>{
+    fun `when calling animal repo check if result is expected data`() =  runBlocking {
 
         mockNetworkResponseWithFileContent("animals.json", HttpURLConnection.HTTP_OK)
-        mRepo = AnimalRepo(mAPIService)
+        repo = AnimalRepoImpl(apiService)
 
-        val dataReceived = mRepo.getAnimalFacts()
+        val dataReceived = repo.getAnimalFacts()
 
         Assert.assertNotNull(dataReceived)
     }

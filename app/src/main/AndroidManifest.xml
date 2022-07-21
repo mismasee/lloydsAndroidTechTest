@@ -16,12 +16,12 @@
 
         <!--Animal Detail Activity-->
         <activity
-            android:name=".ui.activity.AnimalDetailActivity"
+            android:name=".presentation.activity.AnimalDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!--Animal Activity-->
         <activity
-            android:name=".ui.activity.AnimalActivity"
+            android:name=".presentation.activity.AnimalActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

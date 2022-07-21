@@ -1,11 +1,10 @@
 package com.lloydtechassignment.viewmodel
 
-import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.lloydtechassignment.CoroutinesTestRule
-import com.lloydtechassignment.data.model.AnimalsRespItem
-import com.lloydtechassignment.data.repository.AnimalRepo
+import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.domain.interactor.AnimalUseCase
 import com.lloydtechassignment.util.DataState
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
@@ -20,7 +19,6 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 import kotlin.test.assertEquals
-import kotlin.test.assertSame
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -32,13 +30,13 @@ class AnimalViewModelTest {
     val testCoroutineRule = CoroutinesTestRule()
     private lateinit var viewModel: AnimalViewModel
     @Mock
-    private lateinit var animalRepository: AnimalRepo
+    private lateinit var animalUsecase: AnimalUseCase
     @Mock
     private lateinit var animalResponseObserver: Observer<DataState<List<AnimalsRespItem>>>
 
     @Before
     fun setUp() {
-        viewModel = AnimalViewModel(animalRepository)
+        viewModel = AnimalViewModel(animalUsecase)
     }
 
     @Test
@@ -46,7 +44,7 @@ class AnimalViewModelTest {
         val emptyList = arrayListOf<AnimalsRespItem>()
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalRepository.getAnimalFacts()).thenAnswer {
+            whenever(animalUsecase.invoke(Unit)).thenAnswer {
                 DataState.Success(emptyList)
             }
             viewModel.getAllAnimalFacts()
@@ -69,7 +67,7 @@ class AnimalViewModelTest {
         val exception = RuntimeException("Something went wrong")
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalRepository.getAnimalFacts()).thenAnswer {
+            whenever(animalUsecase.invoke(Unit)).thenAnswer {
                 DataState.Failure(exception)
             }
             viewModel.getAllAnimalFacts()

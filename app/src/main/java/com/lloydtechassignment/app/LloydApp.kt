@@ -1,17 +1,14 @@
 package com.lloydtechassignment.app
 
 import android.app.Application
-import com.lloydtechassignment.di.apiModule
-import com.lloydtechassignment.di.repositoryModule
-import com.lloydtechassignment.di.retrofitModule
-import com.lloydtechassignment.di.viewModelModule
+import com.lloydtechassignment.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 /**Lloyd Application class
  * for initializing Koin and other modules
  * */
-class LloydApp : Application(){
+class LloydApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -19,13 +16,19 @@ class LloydApp : Application(){
         initializeKoin()
     }
 
-    private fun initializeKoin(){
+    private fun initializeKoin() {
         startKoin {
             androidContext(this@LloydApp)
-            modules(listOf(repositoryModule,
-                viewModelModule,
-                retrofitModule,
-                apiModule))
+            modules(
+                listOf(
+                    repositoryModule,
+                    viewModelModule,
+                    retrofitModule,
+                    useCaseModule,
+                    databaseModule,
+                    apiModule
+                )
+            )
         }
     }
 }

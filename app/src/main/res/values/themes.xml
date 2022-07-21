@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources >
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
@@ -12,7 +12,7 @@
         <item name="android:windowBackground">@color/windowBackground</item>
         <item name="android:statusBarColor">@color/statusBarColor</item>
 
-        <item name="actionBarStyle">@style/Widget.MaterialComponents.ActionBar.Primary</item>
+        <item name="actionBarStyle">@style/AppTheme.NoActionBar</item>
 
     </style>
 

@@ -1,9 +1,22 @@
 package com.lloydtechassignment.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.lloydtechassignment.data.model.AnimalsRespItem
+import androidx.lifecycle.viewModelScope
+import com.lloydtechassignment.domain.interactor.MarkFavUseCase
+import com.lloydtechassignment.domain.model.AnimalsRespItem
+import kotlinx.coroutines.launch
 
-class AnimalDetailViewmodel : ViewModel() {
+/**
+ * Viewmodel for Animal Detail Activity
+ * [markFavUseCase] is used for invoking repository methods which is injected by DI
+ * */
+class AnimalDetailViewmodel(private val markFavUseCase: MarkFavUseCase) : ViewModel() {
 
-    var animalData:AnimalsRespItem? = null
+    var animalData: AnimalsRespItem? = null
+
+    fun markFavorite() {
+        viewModelScope.launch {
+            animalData?.let { markFavUseCase.invoke(it) }
+        }
+    }
 }
