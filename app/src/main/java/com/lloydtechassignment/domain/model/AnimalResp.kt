@@ -5,20 +5,21 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class AnimalsRespItem(
-    var active_time: String?,
-    var animal_type: String?,
-    var diet: String?,
-    var geo_range: String?,
-    var habitat: String?,
-    var id: Int?,
-    var image_link: String?,
-    var latin_name: String?,
-    var length_max: String?,
-    var length_min: String?,
-    var lifespan: String?,
-    var name: String?,
-    var weight_max: String?,
-    var weight_min: String?
+    var active_time: String? = null,
+    var animal_type: String? = null,
+    var diet: String? = null,
+    var geo_range: String? = null,
+    var habitat: String? = null,
+    var id: Int? = null,
+    var image_link: String? = null,
+    var latin_name: String? = null,
+    var length_max: String? = null,
+    var length_min: String? = null,
+    var lifespan: String? = null,
+    var name: String? = null,
+    var weight_max: String? = null,
+    var weight_min: String? = null,
+    var isFav:Int? = null
 ) : Parcelable
 
 

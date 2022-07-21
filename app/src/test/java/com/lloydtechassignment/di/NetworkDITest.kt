@@ -1,6 +1,6 @@
 package com.lloydtechassignment.di
 
-import com.lloydtechassignment.data.network.ApiService
+import com.lloydtechassignment.data.source.remote.ApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import org.koin.dsl.module

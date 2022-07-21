@@ -1,4 +1,4 @@
-package com.lloydtechassignment.data.network
+package com.lloydtechassignment.data.source.remote
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.squareup.moshi.Moshi

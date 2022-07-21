@@ -1,5 +1,5 @@
 package com.lloydtechassignment.domain.interactor
 
-interface BaseUseCase<out Result> {
-    suspend operator fun invoke():Result
+interface BaseUseCase<in Parameter,out Result> {
+    suspend operator fun invoke(parameter: Parameter):Result
 }

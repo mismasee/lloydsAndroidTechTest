@@ -30,13 +30,13 @@ class AnimalViewModelTest {
     val testCoroutineRule = CoroutinesTestRule()
     private lateinit var viewModel: AnimalViewModel
     @Mock
-    private lateinit var animalRepository: AnimalUseCase
+    private lateinit var animalUsecase: AnimalUseCase
     @Mock
     private lateinit var animalResponseObserver: Observer<DataState<List<AnimalsRespItem>>>
 
     @Before
     fun setUp() {
-        viewModel = AnimalViewModel(animalRepository)
+        viewModel = AnimalViewModel(animalUsecase)
     }
 
     @Test
@@ -44,7 +44,7 @@ class AnimalViewModelTest {
         val emptyList = arrayListOf<AnimalsRespItem>()
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalRepository.invoke()).thenAnswer {
+            whenever(animalUsecase.invoke(Unit)).thenAnswer {
                 DataState.Success(emptyList)
             }
             viewModel.getAllAnimalFacts()
@@ -67,7 +67,7 @@ class AnimalViewModelTest {
         val exception = RuntimeException("Something went wrong")
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalRepository.invoke()).thenAnswer {
+            whenever(animalUsecase.invoke(Unit)).thenAnswer {
                 DataState.Failure(exception)
             }
             viewModel.getAllAnimalFacts()

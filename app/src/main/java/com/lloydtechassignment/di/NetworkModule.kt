@@ -3,7 +3,7 @@ package com.lloydtechassignment.di
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.lloydtechassignment.data.network.ApiService
+import com.lloydtechassignment.data.source.remote.ApiService
 import com.lloydtechassignment.util.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

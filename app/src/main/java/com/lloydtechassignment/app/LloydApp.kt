@@ -25,6 +25,7 @@ class LloydApp : Application() {
                     viewModelModule,
                     retrofitModule,
                     useCaseModule,
+                    databaseModule,
                     apiModule
                 )
             )

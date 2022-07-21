@@ -2,7 +2,7 @@ package com.lloydtechassignment.data.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.lloydtechassignment.base.BaseUTTest
-import com.lloydtechassignment.data.network.ApiService
+import com.lloydtechassignment.data.source.remote.ApiService
 import com.lloydtechassignment.di.configureTestAppComponent
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockWebServer

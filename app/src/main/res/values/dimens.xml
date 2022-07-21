@@ -8,4 +8,6 @@
 
     <dimen name="app_bar_height">300dp</dimen>
     <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_15">15dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
 </resources>

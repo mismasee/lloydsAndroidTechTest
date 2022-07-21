@@ -1,10 +1,13 @@
 package com.lloydtechassignment.di
 
 import com.lloydtechassignment.data.repository.AnimalRepoImpl
-import com.lloydtechassignment.domain.interactor.AnimalUseCase
+import com.lloydtechassignment.data.repository.FavoriteRepoImpl
+import com.lloydtechassignment.domain.interactor.*
 import com.lloydtechassignment.domain.repository.AnimalRepo
+import com.lloydtechassignment.domain.repository.FavoriteRepo
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
 import com.lloydtechassignment.viewmodel.AnimalViewModel
+import com.lloydtechassignment.viewmodel.FavoriteViewmodel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -14,14 +17,16 @@ import org.koin.dsl.module
  * */
 val viewModelModule = module {
     viewModel { AnimalViewModel(get()) }
-    viewModel { AnimalDetailViewmodel() }
+    viewModel { AnimalDetailViewmodel(get()) }
+    viewModel { FavoriteViewmodel(get()) }
 }
 
 /**
  * Repository Module for repository dependency
  * We declared component as single, as singleton instances.*/
 val repositoryModule = module {
-    single { AnimalRepoImpl(get()) as AnimalRepo }
+    single<AnimalRepo> { AnimalRepoImpl(get())  }
+    single<FavoriteRepo> { (FavoriteRepoImpl(get())) }
 }
 
 /**
@@ -29,6 +34,8 @@ val repositoryModule = module {
  * We declared component as single, as singleton instances.*/
 val useCaseModule = module {
     single { AnimalUseCase(get()) }
+    single { GetFavUseCase(get()) }
+    single { MarkFavUseCase(get()) }
 }
 
 

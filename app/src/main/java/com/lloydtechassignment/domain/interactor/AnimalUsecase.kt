@@ -10,10 +10,10 @@ import com.lloydtechassignment.util.DataState
  * it handles the response that returns data &
  * contains a list of actions, event steps
  */
-typealias AnimalBaseUseCase = BaseUseCase<DataState<List<AnimalsRespItem>>>
+typealias AnimalBaseUseCase = BaseUseCase<Unit,DataState<List<AnimalsRespItem>>>
 
 class AnimalUseCase(private val animalRepo: AnimalRepo
 ) : AnimalBaseUseCase {
 
-    override suspend operator fun invoke() = animalRepo.getAnimalFacts()
+    override suspend operator fun invoke(parameter: Unit) = animalRepo.getAnimalFacts()
 }

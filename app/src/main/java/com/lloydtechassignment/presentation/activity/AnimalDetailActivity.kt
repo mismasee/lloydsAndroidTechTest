@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.lloydtechassignment.R
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.presentation.base.BaseActivity
+import com.lloydtechassignment.util.showToast
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -55,12 +57,17 @@ class AnimalDetailActivity : BaseActivity<AnimalDetailViewmodel, ActivityAnimalD
         viewmodel.animalData?.let {
             viewBinding.content.apply {
                 animalTitle.text = it.name
-                animalGeo.text = it.geo_range
+                animalGeo.text = it.habitat
             }
             viewBinding.toolbar.title = it.name
             Glide.with(this)
                 .load(it.image_link) // image url
                 .into(viewBinding.imageView)
+        }
+
+        viewBinding.content.ivMarkFav.setOnClickListener {
+            viewmodel.markFavorite()
+            showToast(getString(R.string.marked_fav))
         }
     }
 

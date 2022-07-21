@@ -1,4 +1,4 @@
-package com.lloydtechassignment.data.network
+package com.lloydtechassignment.data.source.remote
 
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.util.END_POINT
