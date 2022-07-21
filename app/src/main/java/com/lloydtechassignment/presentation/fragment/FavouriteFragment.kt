@@ -9,6 +9,8 @@ import com.lloydtechassignment.presentation.activity.AnimalDetailActivity
 import com.lloydtechassignment.presentation.adapters.AnimalListAdapter
 import com.lloydtechassignment.presentation.base.BaseFragment
 import com.lloydtechassignment.util.DataState
+import com.lloydtechassignment.util.hide
+import com.lloydtechassignment.util.show
 import com.lloydtechassignment.util.showToast
 import com.lloydtechassignment.viewmodel.FavoriteViewmodel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -18,7 +20,7 @@ class FavouriteFragment : BaseFragment<FavoriteViewmodel,FragmentFavouriteBindin
 
     companion object {
 
-        val FRAGMENT_NAME = FavouriteFragment::class.java.name
+        val FRAGMENT_NAME:String = FavouriteFragment::class.java.name
 
         @JvmStatic
         fun newInstance() = FavouriteFragment()
@@ -43,15 +45,18 @@ class FavouriteFragment : BaseFragment<FavoriteViewmodel,FragmentFavouriteBindin
     * Method is used to observe viewmodel livedata
     * */
     private fun subscribeObservers() {
-        viewmodel.dataState.observe(viewLifecycleOwner, androidx.lifecycle.Observer { dataState ->
+        viewmodel.dataState.observe(viewLifecycleOwner) { dataState ->
             when (dataState) {
                 is DataState.Success -> if (dataState.data?.isNotEmpty() == true) {
                     adapter.submitList(dataState.data.toMutableList())
-                }
+                    binding.noDataAvailable.hide()
+                }else binding.noDataAvailable.show()
+
                 is DataState.Loading -> activity?.showToast(getString(R.string.loading_str))
+
                 is DataState.Failure -> activity?.showToast(getString(R.string.something_went_wrong))
             }
-        })
+        }
     }
 
     private fun onItemClicked(animalsRespItem: AnimalsRespItem) {

@@ -7,7 +7,7 @@ import com.lloydtechassignment.databinding.ItemAnimalBinding
 
 /**
  * [RecyclerView.ViewHolder] implementation to inflate View for RecyclerView.
- * See [AnimalListAdapter]]
+ * See AnimalListAdapter
  */
 class AnimalViewHolder(private val binding: ItemAnimalBinding) : RecyclerView.ViewHolder(binding.root) {
 

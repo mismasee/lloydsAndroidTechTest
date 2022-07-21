@@ -17,11 +17,11 @@ import org.mockito.junit.MockitoJUnitRunner
 class MarkFavoriteUseCaseTest : DomainBaseTest() {
 
     @Mock
-    lateinit var favRepository: FavoriteRepo
+    private lateinit var favRepository: FavoriteRepo
 
-    lateinit var sut: MarkFavUseCase
+    private lateinit var sut: MarkFavUseCase
 
-    var favAnimalList = mutableListOf<AnimalsRespItem>()
+    private var favAnimalList = mutableListOf<AnimalsRespItem>()
 
     @Before
     fun setUp() {

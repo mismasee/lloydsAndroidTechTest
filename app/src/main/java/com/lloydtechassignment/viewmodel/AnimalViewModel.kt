@@ -10,7 +10,7 @@ import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel for [AnimalActivity]
+ * ViewModel for AnimalActivity
  */
 class AnimalViewModel(private val animalUseCase: AnimalUseCase) : ViewModel() {
 

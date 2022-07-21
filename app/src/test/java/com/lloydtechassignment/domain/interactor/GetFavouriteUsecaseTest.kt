@@ -21,11 +21,11 @@ import kotlin.test.assertNotEquals
 class GetFavouriteUsecaseTest : DomainBaseTest() {
 
     @Mock
-    lateinit var favRepository: FavoriteRepo
+    private lateinit var favRepository: FavoriteRepo
 
-    lateinit var sut: GetFavUseCase
+    private lateinit var sut: GetFavUseCase
 
-    var favAnimalList = mutableListOf<AnimalsRespItem>()
+    private var favAnimalList = mutableListOf<AnimalsRespItem>()
 
     @Before
     fun setUp() {

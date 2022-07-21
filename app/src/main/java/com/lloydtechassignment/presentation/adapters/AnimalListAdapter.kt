@@ -10,7 +10,7 @@ import com.lloydtechassignment.databinding.ItemAnimalBinding
 import com.lloydtechassignment.presentation.adapters.viewholder.AnimalViewHolder
 
 /**
- * Adapter class [RecyclerView.Adapter] for [RecyclerView] which binds [Animal] along with [AnimalViewHolder]
+ * Adapter class [RecyclerView.Adapter] for [RecyclerView] which binds [AnimalsRespItem] along with [AnimalViewHolder]
  * @param onItemClicked which will receive callback when item is clicked.
  */
 class AnimalListAdapter(

@@ -10,7 +10,7 @@ import com.lloydtechassignment.util.BLANK
  * A Child class of Entity Mapper
  * which will be responsible for converting entity in to model and model in to entity
  * */
-class AnimalEntityMapper() : EntityMapper<AnimalEntity, AnimalsRespItem> {
+class AnimalEntityMapper : EntityMapper<AnimalEntity, AnimalsRespItem> {
 
 
     override fun mapFromEntity(entity: AnimalEntity): AnimalsRespItem {

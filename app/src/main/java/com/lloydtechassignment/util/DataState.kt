@@ -2,7 +2,7 @@ package com.lloydtechassignment.util
 
 /**
  *Data State Management for UI & Data.
- * [Success] return the success state along with [data].
+ * [Success] return the success state along with data.
  * [Failure] return the failed state along with exception.
  * [Loading] return the loading state of data it returns nothing.
  */

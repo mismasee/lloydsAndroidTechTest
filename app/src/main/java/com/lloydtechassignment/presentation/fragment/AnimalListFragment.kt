@@ -18,7 +18,7 @@ class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBindin
 
     companion object {
 
-        val FRAGMENT_NAME = AnimalListFragment::class.java.name
+        val FRAGMENT_NAME: String = AnimalListFragment::class.java.name
 
         @JvmStatic
         fun newInstance() = AnimalListFragment()

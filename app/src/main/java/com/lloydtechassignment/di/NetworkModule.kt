@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
- * Retrofit Module for provinding retrofit dependency
+ * Retrofit Module for providing retrofit dependency
  * */
 val retrofitModule = module {
 
