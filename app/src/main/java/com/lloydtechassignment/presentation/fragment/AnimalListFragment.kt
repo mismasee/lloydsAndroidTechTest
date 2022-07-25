@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.lloydtechassignment.R
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.databinding.FragmentAnimalListBinding
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.presentation.activity.AnimalDetailActivity
@@ -91,9 +92,9 @@ class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBindin
     }
 
 
-    private fun onItemClicked(animalsRespItem: AnimalsRespItem) {
+    private fun onItemClicked(animalUIModel: AnimalUIModel) {
         context?.let {
-            val intent = AnimalDetailActivity.getStartIntent(it, animalsRespItem)
+            val intent = AnimalDetailActivity.getStartIntent(it, animalUIModel)
             startActivity(intent)
         }
     }

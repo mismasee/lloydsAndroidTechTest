@@ -1,36 +1,36 @@
 package com.lloydtechassignment.domain.fakes
 
 
-import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 object FakeData {
-    fun getAnimalList(): Flow<DataState<List<AnimalsRespItem>>> = flow {
+    fun getAnimalList(): Flow<DataState<List<AnimalUIModel>>> = flow {
         emit(DataState.Success(animals))
     }
 
     val animals = listOf(
-        AnimalsRespItem(
+        AnimalUIModel(
             id = 1,
             name = "Panda",
             habitat = "China",
-            image_link = "https://dummy.url",
+            imageLink = "https://dummy.url",
             isFav = 1
         ),
-        AnimalsRespItem(
+        AnimalUIModel(
             id = 2,
             name = "Tiger",
             habitat = "India",
-            image_link = "https://dummy.url",
+            imageLink = "https://dummy.url",
             isFav = 0
         ),
-        AnimalsRespItem(
+        AnimalUIModel(
             id = 2,
             name = "Kangaroo",
             habitat = "Australia",
-            image_link = "https://dummy.url",
+            imageLink = "https://dummy.url",
             isFav = 1
         )
 
@@ -38,11 +38,11 @@ object FakeData {
 
 
     fun getFakeAnimal() =
-            AnimalsRespItem(
+        AnimalUIModel(
                 id = 2,
                 name = "Elephant",
                 habitat = "India",
-                image_link = "https://dummy.url",
+                imageLink = "https://dummy.url",
                 isFav = 1
             )
     }

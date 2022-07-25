@@ -1,9 +1,6 @@
 package com.lloydtechassignment.domain.model
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 data class AnimalsRespItem(
     var active_time: String? = null,
     var animal_type: String? = null,
@@ -20,6 +17,6 @@ data class AnimalsRespItem(
     var weight_max: String? = null,
     var weight_min: String? = null,
     var isFav:Int? = null
-) : Parcelable
+)
 
 

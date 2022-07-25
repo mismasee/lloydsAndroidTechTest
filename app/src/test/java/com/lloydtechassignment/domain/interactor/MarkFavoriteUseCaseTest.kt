@@ -1,5 +1,6 @@
 package com.lloydtechassignment.domain.interactor
 
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.domain.fakes.FakeData
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.domain.repository.FavoriteRepo
@@ -21,7 +22,7 @@ class MarkFavoriteUseCaseTest : DomainBaseTest() {
 
     private lateinit var sut: MarkFavUseCase
 
-    private var favAnimalList = mutableListOf<AnimalsRespItem>()
+    private var favAnimalList = mutableListOf<AnimalUIModel>()
 
     @Before
     fun setUp() {
@@ -48,8 +49,8 @@ class MarkFavoriteUseCaseTest : DomainBaseTest() {
             assert(!favAnimalList.contains(favItem))
         }
 
-    private fun addInFavList(animalsRespItem: AnimalsRespItem){
-        favAnimalList.add(animalsRespItem)
+    private fun addInFavList(animalUIModel: AnimalUIModel){
+        favAnimalList.add(animalUIModel)
     }
 }
 

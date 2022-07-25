@@ -2,7 +2,7 @@ package com.lloydtechassignment.presentation.adapters.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.databinding.ItemAnimalBinding
 
 /**
@@ -11,12 +11,12 @@ import com.lloydtechassignment.databinding.ItemAnimalBinding
  */
 class AnimalViewHolder(private val binding: ItemAnimalBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(animalsRespItem: AnimalsRespItem, onItemClicked: (AnimalsRespItem) -> Unit) {
+    fun bind(animalsRespItem: AnimalUIModel, onItemClicked: (AnimalUIModel) -> Unit) {
         binding.animalTitle.text = animalsRespItem.name
         binding.postAuthor.text = animalsRespItem.habitat
 
         Glide.with(binding.imageView.context)
-            .load(animalsRespItem.image_link) // image url
+            .load(animalsRespItem.imageLink) // image url
             .into(binding.imageView)
 
         binding.root.setOnClickListener {

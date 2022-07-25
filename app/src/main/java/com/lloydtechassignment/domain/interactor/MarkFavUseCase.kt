@@ -1,5 +1,6 @@
 package com.lloydtechassignment.domain.interactor
 
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.domain.repository.FavoriteRepo
 
@@ -8,11 +9,11 @@ import com.lloydtechassignment.domain.repository.FavoriteRepo
  * it handles the response that returns data &
  * contains a list of actions, event steps
  */
-typealias MarkFavBaseUseCase = BaseUseCase<AnimalsRespItem, Unit>
+typealias MarkFavBaseUseCase = BaseUseCase<AnimalUIModel, Unit>
 
 class MarkFavUseCase(private val favoriteRepo: FavoriteRepo) : MarkFavBaseUseCase {
 
-    override suspend fun invoke(parameter: AnimalsRespItem) {
+    override suspend fun invoke(parameter: AnimalUIModel) {
         favoriteRepo.addFavorite(parameter)
     }
 }

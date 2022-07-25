@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.lloydtechassignment.R
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.presentation.base.BaseActivity
@@ -23,12 +24,12 @@ class AnimalDetailActivity : BaseActivity<AnimalDetailViewmodel, ActivityAnimalD
         /**
          * Method is used to send Extra Data to the Activity and returning its intent
          * [context] is used to send Context of calling activity
-         * [animalsRespItem] is the data parameter*/
+         * [animalUIModel] is the data parameter*/
         fun getStartIntent(
             context: Context,
-            animalsRespItem: AnimalsRespItem
+            animalUIModel: AnimalUIModel
         ) = Intent(context, AnimalDetailActivity::class.java).apply {
-            putExtra(EXTRA_DATA, animalsRespItem)
+            putExtra(EXTRA_DATA, animalUIModel)
         }
     }
 
@@ -55,19 +56,21 @@ class AnimalDetailActivity : BaseActivity<AnimalDetailViewmodel, ActivityAnimalD
      * */
     private fun setAnimalData() {
         viewmodel.animalData?.let {
-            viewBinding.content.apply {
-                animalTitle.text = it.name
-                animalGeo.text = it.habitat
+            viewBinding.apply {
+                content.apply {
+                    animalTitle.text = it.name
+                    animalGeo.text = it.habitat
+                    ivMarkFav.setOnClickListener {
+                        viewmodel.markFavorite()
+                        showToast(getString(R.string.marked_fav))
+                    }
+                }
+                toolbar.title = it.name
+                Glide.with(this@AnimalDetailActivity)
+                    .load(it.imageLink) // image url
+                    .into(viewBinding.imageView)
             }
-            viewBinding.toolbar.title = it.name
-            Glide.with(this)
-                .load(it.image_link) // image url
-                .into(viewBinding.imageView)
-        }
 
-        viewBinding.content.ivMarkFav.setOnClickListener {
-            viewmodel.markFavorite()
-            showToast(getString(R.string.marked_fav))
         }
     }
 

@@ -1,6 +1,7 @@
 package com.lloydtechassignment.data.repository
 
-import com.lloydtechassignment.data.mapper.AnimalEntityMapper
+import com.lloydtechassignment.data.mapper.animalmapper.AnimalEntityMapper
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.data.source.local.AnimalDao
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.domain.repository.FavoriteRepo
@@ -10,16 +11,16 @@ import kotlinx.coroutines.flow.flow
 
 class FavoriteRepoImpl(private val animalDao: AnimalDao) : FavoriteRepo {
 
-    override suspend fun addFavorite(animalsRespItem: AnimalsRespItem) {
+    override suspend fun addFavorite(animalUIModel: AnimalUIModel) {
         animalDao.insert(
                 AnimalEntityMapper()
-                    .mapToEntity(animalsRespItem)
+                    .mapToEntity(animalUIModel)
             )
     }
 
 
     override suspend fun getAllFavorites()
-            : Flow<DataState<List<AnimalsRespItem>>> = flow {
+            : Flow<DataState<List<AnimalUIModel>>> = flow {
         emit(DataState.Loading)
         try {
             animalDao.getAllFavorites().collect {

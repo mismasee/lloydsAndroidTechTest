@@ -1,5 +1,7 @@
 package com.lloydtechassignment.data.repository
 
+import com.lloydtechassignment.data.mapper.animalmapper.AnimalUIModelMapper
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.data.source.remote.ApiService
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.domain.repository.AnimalRepo
@@ -13,10 +15,10 @@ import kotlinx.coroutines.withContext
  * */
 class AnimalRepoImpl(private val apiService: ApiService) : AnimalRepo {
 
-    override suspend fun getAnimalFacts(): DataState<List<AnimalsRespItem>> {
+    override suspend fun getAnimalFacts(): DataState<List<AnimalUIModel>> {
         return withContext(Dispatchers.IO) {
             try {
-                DataState.Success(apiService.getAnimals().body())
+                DataState.Success(AnimalUIModelMapper().mapFromEntityList(apiService.getAnimals().body()!!))
             } catch (exception: Exception) {
                 DataState.Failure(exception)
             }

@@ -3,6 +3,7 @@ package com.lloydtechassignment.presentation.fragment
 import android.os.Bundle
 import android.view.View
 import com.lloydtechassignment.R
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.databinding.FragmentFavouriteBinding
 import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.presentation.activity.AnimalDetailActivity
@@ -59,9 +60,9 @@ class FavouriteFragment : BaseFragment<FavoriteViewmodel,FragmentFavouriteBindin
         }
     }
 
-    private fun onItemClicked(animalsRespItem: AnimalsRespItem) {
+    private fun onItemClicked(animalUIModel: AnimalUIModel) {
         context?.let {
-            val intent = AnimalDetailActivity.getStartIntent(it, animalsRespItem)
+            val intent = AnimalDetailActivity.getStartIntent(it, animalUIModel)
             startActivity(intent)
         }
     }
