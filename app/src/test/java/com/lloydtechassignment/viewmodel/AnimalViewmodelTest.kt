@@ -3,6 +3,7 @@ package com.lloydtechassignment.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.lloydtechassignment.CoroutinesTestRule
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.domain.model.AnimalDomainModel
 import com.lloydtechassignment.domain.interactor.AnimalUseCase
 import com.lloydtechassignment.util.DataState
@@ -32,7 +33,7 @@ class AnimalViewModelTest {
     @Mock
     private lateinit var animalUsecase: AnimalUseCase
     @Mock
-    private lateinit var animalResponseObserver: Observer<DataState<List<AnimalDomainModel>>>
+    private lateinit var animalResponseObserver: Observer<DataState<List<AnimalUIModel>>>
 
     @Before
     fun setUp() {
@@ -44,7 +45,7 @@ class AnimalViewModelTest {
         val emptyList = arrayListOf<AnimalDomainModel>()
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalUsecase.invoke(Unit)).thenAnswer {
+            whenever(animalUsecase.getAnimalFacts()).thenAnswer {
                 DataState.Success(emptyList)
             }
             viewModel.getAllAnimalFacts()
@@ -67,7 +68,7 @@ class AnimalViewModelTest {
         val exception = RuntimeException("Something went wrong")
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalUsecase.invoke(Unit)).thenAnswer {
+            whenever(animalUsecase.getAnimalFacts()).thenAnswer {
                 DataState.Failure(exception)
             }
             viewModel.getAllAnimalFacts()
