@@ -2,14 +2,13 @@ package com.lloydtechassignment.data.mapper.animalmapper
 
 import com.lloydtechassignment.data.mapper.EntityMapper
 import com.lloydtechassignment.data.models.AnimalUIModel
-import com.lloydtechassignment.data.source.local.AnimalEntity
-import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalDomainModel
 import com.lloydtechassignment.util.BLANK
 
-class AnimalUIModelMapper : EntityMapper<AnimalUIModel,AnimalsRespItem> {
+class AnimalUIModelMapper : EntityMapper<AnimalUIModel,AnimalDomainModel> {
 
-    override fun mapFromEntity(entity: AnimalUIModel): AnimalsRespItem {
-        return AnimalsRespItem(
+    override fun mapFromEntity(entity: AnimalUIModel): AnimalDomainModel {
+        return AnimalDomainModel(
             id = entity.id,
             name = entity.name,
             isFav = entity.isFav,
@@ -18,7 +17,7 @@ class AnimalUIModelMapper : EntityMapper<AnimalUIModel,AnimalsRespItem> {
         )
     }
 
-    override fun mapToEntity(model: AnimalsRespItem): AnimalUIModel {
+    override fun mapToEntity(model: AnimalDomainModel): AnimalUIModel {
         return AnimalUIModel(
             id = model.id ?: 0,
             name = model.name ?: BLANK,
@@ -28,7 +27,7 @@ class AnimalUIModelMapper : EntityMapper<AnimalUIModel,AnimalsRespItem> {
         )
     }
 
-    fun mapFromEntityList(entities: List<AnimalsRespItem>): List<AnimalUIModel> {
+    fun mapFromEntityList(entities: List<AnimalDomainModel>): List<AnimalUIModel> {
         return entities.map { mapToEntity(it) }
     }
 }

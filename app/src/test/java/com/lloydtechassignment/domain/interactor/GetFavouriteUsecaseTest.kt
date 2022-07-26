@@ -1,7 +1,8 @@
 package com.lloydtechassignment.domain.interactor
 
+import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.domain.fakes.FakeData
-import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalDomainModel
 import com.lloydtechassignment.domain.repository.FavoriteRepo
 import com.lloydtechassignment.domain.utils.DomainBaseTest
 import com.lloydtechassignment.util.DataState
@@ -25,7 +26,7 @@ class GetFavouriteUsecaseTest : DomainBaseTest() {
 
     private lateinit var sut: GetFavUseCase
 
-    private var favAnimalList = mutableListOf<AnimalsRespItem>()
+    private var favAnimalList = mutableListOf<AnimalUIModel>()
 
     @Before
     fun setUp() {
@@ -57,7 +58,7 @@ class GetFavouriteUsecaseTest : DomainBaseTest() {
             assertNotEquals(favAnimalList.size, 1)
         }
 
-    private fun addInFavList() : Flow<DataState<List<AnimalsRespItem>>> {
+    private fun addInFavList() : Flow<DataState<List<AnimalUIModel>>> {
         favAnimalList.addAll(FakeData.animals)
         return FakeData.getAnimalList()
     }

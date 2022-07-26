@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat
 import com.lloydtechassignment.R
 import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.databinding.FragmentAnimalListBinding
-import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.presentation.activity.AnimalDetailActivity
 import com.lloydtechassignment.presentation.adapters.AnimalListAdapter
 import com.lloydtechassignment.presentation.base.BaseFragment

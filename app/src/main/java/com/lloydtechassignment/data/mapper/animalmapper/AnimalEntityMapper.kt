@@ -4,8 +4,6 @@ package com.lloydtechassignment.data.mapper.animalmapper
 import com.lloydtechassignment.data.mapper.EntityMapper
 import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.data.source.local.AnimalEntity
-import com.lloydtechassignment.domain.model.AnimalsRespItem
-import com.lloydtechassignment.util.BLANK
 
 
 /**

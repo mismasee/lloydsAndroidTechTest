@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.domain.interactor.AnimalUseCase
-import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.launch
 
@@ -23,7 +22,7 @@ class AnimalViewModel(private val animalUseCase: AnimalUseCase) : ViewModel() {
     fun getAllAnimalFacts() {
         _dataState.postValue(DataState.Loading)
         viewModelScope.launch {
-            _dataState.postValue(animalUseCase.invoke(Unit))
+            _dataState.postValue(animalUseCase.getAnimalFacts())
         }
     }
 }

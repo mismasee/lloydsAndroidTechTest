@@ -21,7 +21,7 @@ class FavoriteViewmodel(private val getFavUseCase: GetFavUseCase): ViewModel() {
 
     fun getAllFavoriteList(){
         viewModelScope.launch {
-            getFavUseCase.invoke(Unit)
+            getFavUseCase.getAllFavorites()
                 .onEach { dataState ->
                     _dataState.value = dataState
                 }.launchIn(viewModelScope)

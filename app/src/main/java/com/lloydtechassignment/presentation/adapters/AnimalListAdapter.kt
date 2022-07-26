@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lloydtechassignment.data.models.AnimalUIModel
-import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalDomainModel
 import com.lloydtechassignment.databinding.ItemAnimalBinding
 import com.lloydtechassignment.presentation.adapters.viewholder.AnimalViewHolder
 
 /**
- * Adapter class [RecyclerView.Adapter] for [RecyclerView] which binds [AnimalsRespItem] along with [AnimalViewHolder]
+ * Adapter class [RecyclerView.Adapter] for [RecyclerView] which binds [AnimalDomainModel] along with [AnimalViewHolder]
  * @param onItemClicked which will receive callback when item is clicked.
  */
 class AnimalListAdapter(

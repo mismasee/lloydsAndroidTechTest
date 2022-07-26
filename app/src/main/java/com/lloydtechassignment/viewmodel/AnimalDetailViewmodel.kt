@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.domain.interactor.MarkFavUseCase
-import com.lloydtechassignment.domain.model.AnimalsRespItem
 import kotlinx.coroutines.launch
 
 /**
@@ -17,7 +16,7 @@ class AnimalDetailViewmodel(private val markFavUseCase: MarkFavUseCase) : ViewMo
 
     fun markFavorite() {
         viewModelScope.launch {
-            animalData?.let { markFavUseCase.invoke(it) }
+            animalData?.let { markFavUseCase.markFavorite(it) }
         }
     }
 }

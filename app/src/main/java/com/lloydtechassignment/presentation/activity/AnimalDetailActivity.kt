@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.lloydtechassignment.R
 import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
-import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.presentation.base.BaseActivity
 import com.lloydtechassignment.util.showToast
 import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel

@@ -12,15 +12,19 @@ import com.lloydtechassignment.databinding.ItemAnimalBinding
 class AnimalViewHolder(private val binding: ItemAnimalBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(animalsRespItem: AnimalUIModel, onItemClicked: (AnimalUIModel) -> Unit) {
-        binding.animalTitle.text = animalsRespItem.name
-        binding.postAuthor.text = animalsRespItem.habitat
 
-        Glide.with(binding.imageView.context)
-            .load(animalsRespItem.imageLink) // image url
-            .into(binding.imageView)
+        binding.apply {
+            animalTitle.text = animalsRespItem.name
+            postAuthor.text = animalsRespItem.habitat
 
-        binding.root.setOnClickListener {
-            onItemClicked(animalsRespItem)
+            Glide.with(imageView.context)
+                .load(animalsRespItem.imageLink) // image url
+                .into(imageView)
+
+            root.setOnClickListener {
+                onItemClicked(animalsRespItem)
+            }
         }
+
     }
 }

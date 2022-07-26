@@ -1,7 +1,7 @@
 package com.lloydtechassignment.domain.model
 
 
-data class AnimalsRespItem(
+data class AnimalDomainModel(
     var active_time: String? = null,
     var animal_type: String? = null,
     var diet: String? = null,

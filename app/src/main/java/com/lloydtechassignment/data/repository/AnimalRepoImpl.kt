@@ -3,7 +3,6 @@ package com.lloydtechassignment.data.repository
 import com.lloydtechassignment.data.mapper.animalmapper.AnimalUIModelMapper
 import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.data.source.remote.ApiService
-import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.domain.repository.AnimalRepo
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.Dispatchers

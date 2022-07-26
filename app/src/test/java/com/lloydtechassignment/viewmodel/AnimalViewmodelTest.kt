@@ -3,7 +3,7 @@ package com.lloydtechassignment.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.lloydtechassignment.CoroutinesTestRule
-import com.lloydtechassignment.domain.model.AnimalsRespItem
+import com.lloydtechassignment.domain.model.AnimalDomainModel
 import com.lloydtechassignment.domain.interactor.AnimalUseCase
 import com.lloydtechassignment.util.DataState
 import com.nhaarman.mockitokotlin2.verify
@@ -32,7 +32,7 @@ class AnimalViewModelTest {
     @Mock
     private lateinit var animalUsecase: AnimalUseCase
     @Mock
-    private lateinit var animalResponseObserver: Observer<DataState<List<AnimalsRespItem>>>
+    private lateinit var animalResponseObserver: Observer<DataState<List<AnimalDomainModel>>>
 
     @Before
     fun setUp() {
@@ -41,7 +41,7 @@ class AnimalViewModelTest {
 
     @Test
     fun `when fetching results ok then return a list successfully`() {
-        val emptyList = arrayListOf<AnimalsRespItem>()
+        val emptyList = arrayListOf<AnimalDomainModel>()
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
             whenever(animalUsecase.invoke(Unit)).thenAnswer {

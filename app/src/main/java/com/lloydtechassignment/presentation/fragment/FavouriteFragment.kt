@@ -5,7 +5,6 @@ import android.view.View
 import com.lloydtechassignment.R
 import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.databinding.FragmentFavouriteBinding
-import com.lloydtechassignment.domain.model.AnimalsRespItem
 import com.lloydtechassignment.presentation.activity.AnimalDetailActivity
 import com.lloydtechassignment.presentation.adapters.AnimalListAdapter
 import com.lloydtechassignment.presentation.base.BaseFragment
