@@ -1,8 +1,6 @@
 package com.lloydtechassignment.domain.interactor
 
-import com.lloydtechassignment.data.models.AnimalUIModel
 import com.lloydtechassignment.domain.repository.AnimalRepo
-import com.lloydtechassignment.util.DataState
 
 
 /**
@@ -11,8 +9,8 @@ import com.lloydtechassignment.util.DataState
  * contains a list of actions, event steps
  */
 
-class AnimalUseCase(private val animalRepo: AnimalRepo
-)  {
+class AnimalUseCase(private val animalRepo: AnimalRepo)  {
 
   suspend  fun getAnimalFacts() = animalRepo.getAnimalFacts()
+
 }
