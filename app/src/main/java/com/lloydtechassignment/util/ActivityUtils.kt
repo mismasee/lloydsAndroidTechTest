@@ -13,8 +13,6 @@ fun Activity.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(applicationContext, message, duration).show()
 }
 
-
-
 fun Context.isNetworkAvailable(): Boolean {
     val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val network = cm.activeNetwork

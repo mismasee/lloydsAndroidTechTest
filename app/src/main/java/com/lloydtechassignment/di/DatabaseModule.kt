@@ -8,7 +8,6 @@ import org.koin.dsl.module
 
 val databaseModule = module {
 
-
      fun provideAppDatabase(application: Application): AnimalDatabase {
         return Room.databaseBuilder(
             application,

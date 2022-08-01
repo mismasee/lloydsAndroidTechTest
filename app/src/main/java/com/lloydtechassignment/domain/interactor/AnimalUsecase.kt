@@ -8,9 +8,7 @@ import com.lloydtechassignment.domain.repository.AnimalRepo
  * it handles the response that returns data &
  * contains a list of actions, event steps
  */
-
 class AnimalUseCase(private val animalRepo: AnimalRepo)  {
 
-  suspend  fun getAnimalFacts() = animalRepo.getAnimalFacts()
-
+  suspend operator fun invoke() = animalRepo.getAnimalFacts()
 }

@@ -19,11 +19,7 @@ class AnimalListAdapter(
 ) : ListAdapter<AnimalUIModel, AnimalViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = AnimalViewHolder(
-        ItemAnimalBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
+        ItemAnimalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: AnimalViewHolder, position: Int) =

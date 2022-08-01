@@ -5,7 +5,6 @@ import com.lloydtechassignment.domain.repository.FavoriteRepo
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.flow.Flow
 
-
 /**
  * An interactor that calls the actual implementation of [AnimalRepo](which is injected by DI)
  * it handles the response that returns data &
@@ -13,6 +12,6 @@ import kotlinx.coroutines.flow.Flow
  */
 class GetFavUseCase(private val favoriteRepo: FavoriteRepo)  {
 
-    suspend fun getAllFavorites(): Flow<DataState<List<AnimalUIModel>>> =
+    suspend operator fun invoke(): Flow<DataState<List<AnimalUIModel>>> =
         favoriteRepo.getAllFavorites()
 }

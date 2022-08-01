@@ -13,22 +13,18 @@ import com.lloydtechassignment.util.*
 import com.lloydtechassignment.viewmodel.AnimalViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBinding>() {
 
     companion object {
-
         val FRAGMENT_NAME: String = AnimalListFragment::class.java.name
 
         @JvmStatic
         fun newInstance() = AnimalListFragment()
     }
 
-
     override fun getViewBinding() = FragmentAnimalListBinding.inflate(layoutInflater)
     override val viewmodel by viewModel<AnimalViewModel>()
     private val adapter = AnimalListAdapter(this::onItemClicked)
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,8 +32,6 @@ class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBindin
         initView()
         subscribeObservers()
     }
-
-
 
     override fun onStart() {
         super.onStart()
@@ -51,7 +45,6 @@ class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBindin
             ivFav.setOnClickListener { navigateToFavorites() }
         }
     }
-
 
     /**
      * Observe network changes i.e. Internet Connectivity
@@ -74,7 +67,6 @@ class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBindin
         }
     }
 
-
     /**
      * Method is used to observe viewmodel livedata
      * */
@@ -89,7 +81,6 @@ class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBindin
             }
         })
     }
-
 
     private fun onItemClicked(animalUIModel: AnimalUIModel) {
         context?.let {

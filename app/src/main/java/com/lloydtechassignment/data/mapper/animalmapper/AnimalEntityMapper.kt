@@ -12,7 +12,6 @@ import com.lloydtechassignment.data.source.local.AnimalEntity
  * */
 class AnimalEntityMapper : EntityMapper<AnimalEntity, AnimalUIModel> {
 
-
     override fun mapFromEntity(entity: AnimalEntity): AnimalUIModel {
         return AnimalUIModel(
             id = entity.id,
@@ -22,7 +21,6 @@ class AnimalEntityMapper : EntityMapper<AnimalEntity, AnimalUIModel> {
             imageLink = entity.imageLink
         )
     }
-
 
     override fun mapToEntity(model: AnimalUIModel): AnimalEntity {
         return AnimalEntity(

@@ -17,9 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavouriteFragment : BaseFragment<FavoriteViewmodel,FragmentFavouriteBinding>() {
 
-
     companion object {
-
         val FRAGMENT_NAME:String = FavouriteFragment::class.java.name
 
         @JvmStatic
@@ -29,7 +27,6 @@ class FavouriteFragment : BaseFragment<FavoriteViewmodel,FragmentFavouriteBindin
     override fun getViewBinding() = FragmentFavouriteBinding.inflate(layoutInflater)
     override val viewmodel by viewModel<FavoriteViewmodel>()
     private val adapter = AnimalListAdapter(this::onItemClicked)
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,7 +47,7 @@ class FavouriteFragment : BaseFragment<FavoriteViewmodel,FragmentFavouriteBindin
                 is DataState.Success -> if (dataState.data?.isNotEmpty() == true) {
                     adapter.submitList(dataState.data.toMutableList())
                     binding.noDataAvailable.hide()
-                }else binding.noDataAvailable.show()
+                }
 
                 is DataState.Loading -> activity?.showToast(getString(R.string.loading_str))
 

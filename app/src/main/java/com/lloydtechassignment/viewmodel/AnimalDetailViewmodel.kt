@@ -16,7 +16,7 @@ class AnimalDetailViewmodel(private val markFavUseCase: MarkFavUseCase) : ViewMo
 
     fun markFavorite() {
         viewModelScope.launch {
-            animalData?.let { markFavUseCase.markFavorite(it) }
+            animalData?.let { markFavUseCase(it) }
         }
     }
 }

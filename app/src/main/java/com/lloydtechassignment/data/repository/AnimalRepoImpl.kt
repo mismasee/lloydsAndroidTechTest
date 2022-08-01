@@ -24,5 +24,4 @@ class AnimalRepoImpl(private val apiService: ApiService) : AnimalRepo {
         }
     }
 
-
 }

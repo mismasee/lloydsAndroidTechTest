@@ -41,7 +41,6 @@ class AnimalDetailActivity : BaseActivity<AnimalDetailViewmodel, ActivityAnimalD
         viewmodel.animalData = intent.getParcelableExtra(EXTRA_DATA)
     }
 
-
     override fun getBinding(): ActivityAnimalDetailsBinding =
         ActivityAnimalDetailsBinding.inflate(layoutInflater)
 
@@ -50,9 +49,7 @@ class AnimalDetailActivity : BaseActivity<AnimalDetailViewmodel, ActivityAnimalD
         setAnimalData()
     }
 
-    /**
-     * Set Animal Data is used for setting Animal Data on Animal Detail Page
-     * */
+    /** Set Animal Data is used for setting Animal Data on Animal Detail Page* */
     private fun setAnimalData() {
         viewmodel.animalData?.let {
             viewBinding.apply {

@@ -14,14 +14,12 @@ import kotlinx.coroutines.launch
 class FavoriteViewmodel(private val getFavUseCase: GetFavUseCase): ViewModel() {
 
     private val _dataState: MutableLiveData<DataState<List<AnimalUIModel>>> = MutableLiveData()
-
     val dataState: LiveData<DataState<List<AnimalUIModel>>>
         get() = _dataState
 
-
     fun getAllFavoriteList(){
         viewModelScope.launch {
-            getFavUseCase.getAllFavorites()
+            getFavUseCase()
                 .onEach { dataState ->
                     _dataState.value = dataState
                 }.launchIn(viewModelScope)

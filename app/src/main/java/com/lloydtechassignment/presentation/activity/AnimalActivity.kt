@@ -14,12 +14,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class AnimalActivity : BaseActivity<AnimalViewModel, ActivityMainBinding>() {
 
     override val viewmodel by viewModel<AnimalViewModel>()
-
     override fun getBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
 

@@ -22,7 +22,7 @@ class AnimalViewModel(private val animalUseCase: AnimalUseCase) : ViewModel() {
     fun getAllAnimalFacts() {
         _dataState.postValue(DataState.Loading)
         viewModelScope.launch {
-            _dataState.postValue(animalUseCase.getAnimalFacts())
+            _dataState.postValue(animalUseCase())
         }
     }
 }

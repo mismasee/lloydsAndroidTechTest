@@ -45,7 +45,7 @@ class AnimalViewModelTest {
         val emptyList = arrayListOf<AnimalDomainModel>()
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalUsecase.getAnimalFacts()).thenAnswer {
+            whenever(animalUsecase()).thenAnswer {
                 DataState.Success(emptyList)
             }
             viewModel.getAllAnimalFacts()
@@ -68,7 +68,7 @@ class AnimalViewModelTest {
         val exception = RuntimeException("Something went wrong")
         testCoroutineRule.runBlockingTest {
             viewModel.dataState.observeForever(animalResponseObserver)
-            whenever(animalUsecase.getAnimalFacts()).thenAnswer {
+            whenever(animalUsecase()).thenAnswer {
                 DataState.Failure(exception)
             }
             viewModel.getAllAnimalFacts()

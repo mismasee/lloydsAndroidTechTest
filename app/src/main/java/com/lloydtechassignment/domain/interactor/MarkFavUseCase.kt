@@ -11,7 +11,7 @@ import com.lloydtechassignment.domain.repository.FavoriteRepo
 
 class MarkFavUseCase(private val favoriteRepo: FavoriteRepo)  {
 
-    suspend fun markFavorite(animalUIModel: AnimalUIModel) {
+    suspend operator fun invoke(animalUIModel: AnimalUIModel) {
         favoriteRepo.addFavorite(animalUIModel)
     }
 }

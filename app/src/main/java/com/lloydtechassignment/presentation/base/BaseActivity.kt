@@ -11,7 +11,6 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseActivity<VM : ViewModel, VB : ViewBinding> : AppCompatActivity() {
 
     protected abstract val viewmodel: VM
-
     protected lateinit var viewBinding: VB
 
     override fun onCreate(savedInstanceState: Bundle?) {

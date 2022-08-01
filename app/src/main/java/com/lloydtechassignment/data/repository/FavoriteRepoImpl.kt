@@ -17,7 +17,6 @@ class FavoriteRepoImpl(private val animalDao: AnimalDao) : FavoriteRepo {
             )
     }
 
-
     override suspend fun getAllFavorites()
             : Flow<DataState<List<AnimalUIModel>>> = flow {
         emit(DataState.Loading)
