@@ -5,11 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.lloydtechassignment.R
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.databinding.ActivityAnimalDetailsBinding
 import com.lloydtechassignment.presentation.base.BaseActivity
 import com.lloydtechassignment.util.showToast
-import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
+import com.lloydtechassignment.presentation.viewmodel.AnimalDetailViewmodel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**

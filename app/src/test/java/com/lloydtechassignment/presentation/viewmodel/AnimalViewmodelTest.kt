@@ -1,11 +1,11 @@
-package com.lloydtechassignment.viewmodel
+package com.lloydtechassignment.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.lloydtechassignment.CoroutinesTestRule
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.domain.model.AnimalDomainModel
-import com.lloydtechassignment.domain.interactor.AnimalUseCase
+import com.lloydtechassignment.domain.usecases.AnimalUseCase
 import com.lloydtechassignment.util.DataState
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever

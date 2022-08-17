@@ -1,7 +1,7 @@
 package com.lloydtechassignment.data.repository
 
 import com.lloydtechassignment.data.mapper.animalmapper.AnimalEntityMapper
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.data.source.local.AnimalDao
 import com.lloydtechassignment.domain.repository.FavoriteRepo
 import com.lloydtechassignment.util.DataState

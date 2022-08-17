@@ -3,16 +3,15 @@ package com.lloydtechassignment.presentation.fragment
 import android.os.Bundle
 import android.view.View
 import com.lloydtechassignment.R
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.databinding.FragmentFavouriteBinding
 import com.lloydtechassignment.presentation.activity.AnimalDetailActivity
 import com.lloydtechassignment.presentation.adapters.AnimalListAdapter
 import com.lloydtechassignment.presentation.base.BaseFragment
 import com.lloydtechassignment.util.DataState
 import com.lloydtechassignment.util.hide
-import com.lloydtechassignment.util.show
 import com.lloydtechassignment.util.showToast
-import com.lloydtechassignment.viewmodel.FavoriteViewmodel
+import com.lloydtechassignment.presentation.viewmodel.FavoriteViewmodel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavouriteFragment : BaseFragment<FavoriteViewmodel,FragmentFavouriteBinding>() {

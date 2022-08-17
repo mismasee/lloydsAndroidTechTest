@@ -1,4 +1,4 @@
-package com.lloydtechassignment.data.models
+package com.lloydtechassignment.presentation.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -1,7 +1,7 @@
 package com.lloydtechassignment.domain.fakes
 
 
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

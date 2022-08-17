@@ -1,6 +1,6 @@
-package com.lloydtechassignment.domain.interactor
+package com.lloydtechassignment.domain.usecases
 
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.domain.fakes.FakeData
 import com.lloydtechassignment.domain.repository.FavoriteRepo
 import com.lloydtechassignment.domain.utils.DomainBaseTest

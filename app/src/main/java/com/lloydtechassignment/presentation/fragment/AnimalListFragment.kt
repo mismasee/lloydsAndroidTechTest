@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.lloydtechassignment.R
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.databinding.FragmentAnimalListBinding
 import com.lloydtechassignment.presentation.activity.AnimalDetailActivity
 import com.lloydtechassignment.presentation.adapters.AnimalListAdapter
 import com.lloydtechassignment.presentation.base.BaseFragment
 import com.lloydtechassignment.util.*
-import com.lloydtechassignment.viewmodel.AnimalViewModel
+import com.lloydtechassignment.presentation.viewmodel.AnimalViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AnimalListFragment : BaseFragment<AnimalViewModel,FragmentAnimalListBinding>() {

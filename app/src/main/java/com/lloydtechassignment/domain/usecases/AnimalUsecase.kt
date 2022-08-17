@@ -1,4 +1,4 @@
-package com.lloydtechassignment.domain.interactor
+package com.lloydtechassignment.domain.usecases
 
 import com.lloydtechassignment.domain.repository.AnimalRepo
 

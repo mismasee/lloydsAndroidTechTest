@@ -1,6 +1,6 @@
 package com.lloydtechassignment.domain.repository
 
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.flow.Flow
 

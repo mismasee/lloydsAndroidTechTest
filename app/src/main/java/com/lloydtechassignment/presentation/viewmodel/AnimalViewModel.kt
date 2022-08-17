@@ -1,11 +1,11 @@
-package com.lloydtechassignment.viewmodel
+package com.lloydtechassignment.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lloydtechassignment.data.models.AnimalUIModel
-import com.lloydtechassignment.domain.interactor.AnimalUseCase
+import com.lloydtechassignment.presentation.models.AnimalUIModel
+import com.lloydtechassignment.domain.usecases.AnimalUseCase
 import com.lloydtechassignment.util.DataState
 import kotlinx.coroutines.launch
 

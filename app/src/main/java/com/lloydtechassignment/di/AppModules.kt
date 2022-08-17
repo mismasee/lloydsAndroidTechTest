@@ -2,12 +2,12 @@ package com.lloydtechassignment.di
 
 import com.lloydtechassignment.data.repository.AnimalRepoImpl
 import com.lloydtechassignment.data.repository.FavoriteRepoImpl
-import com.lloydtechassignment.domain.interactor.*
+import com.lloydtechassignment.domain.usecases.*
 import com.lloydtechassignment.domain.repository.AnimalRepo
 import com.lloydtechassignment.domain.repository.FavoriteRepo
-import com.lloydtechassignment.viewmodel.AnimalDetailViewmodel
-import com.lloydtechassignment.viewmodel.AnimalViewModel
-import com.lloydtechassignment.viewmodel.FavoriteViewmodel
+import com.lloydtechassignment.presentation.viewmodel.AnimalDetailViewmodel
+import com.lloydtechassignment.presentation.viewmodel.AnimalViewModel
+import com.lloydtechassignment.presentation.viewmodel.FavoriteViewmodel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

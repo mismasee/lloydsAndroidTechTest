@@ -2,7 +2,7 @@ package com.lloydtechassignment.presentation.adapters.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.databinding.ItemAnimalBinding
 
 /**

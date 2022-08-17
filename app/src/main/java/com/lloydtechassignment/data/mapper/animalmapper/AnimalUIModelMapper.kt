@@ -1,9 +1,9 @@
 package com.lloydtechassignment.data.mapper.animalmapper
 
 import com.lloydtechassignment.data.mapper.EntityMapper
-import com.lloydtechassignment.data.models.AnimalUIModel
+import com.lloydtechassignment.presentation.models.AnimalUIModel
 import com.lloydtechassignment.domain.model.AnimalDomainModel
-import com.lloydtechassignment.util.BLANK
+import com.lloydtechassignment.util.AppConstants.BLANK
 
 class AnimalUIModelMapper : EntityMapper<AnimalUIModel,AnimalDomainModel> {
 

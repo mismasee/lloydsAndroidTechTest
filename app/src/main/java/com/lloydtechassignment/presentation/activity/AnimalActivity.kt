@@ -5,7 +5,7 @@ import com.lloydtechassignment.R
 import com.lloydtechassignment.databinding.ActivityMainBinding
 import com.lloydtechassignment.presentation.base.BaseActivity
 import com.lloydtechassignment.presentation.fragment.AnimalListFragment
-import com.lloydtechassignment.viewmodel.AnimalViewModel
+import com.lloydtechassignment.presentation.viewmodel.AnimalViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**

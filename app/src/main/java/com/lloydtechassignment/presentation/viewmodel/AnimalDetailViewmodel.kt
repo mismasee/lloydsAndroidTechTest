@@ -1,9 +1,9 @@
-package com.lloydtechassignment.viewmodel
+package com.lloydtechassignment.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lloydtechassignment.data.models.AnimalUIModel
-import com.lloydtechassignment.domain.interactor.MarkFavUseCase
+import com.lloydtechassignment.presentation.models.AnimalUIModel
+import com.lloydtechassignment.domain.usecases.MarkFavUseCase
 import kotlinx.coroutines.launch
 
 /**
